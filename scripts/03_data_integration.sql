@@ -3,9 +3,9 @@
 Data Integration
 ===============================================================================
 Script Purpose:
-	This script merges data from cleaned CRM and ERP tables using 'LEFT JOIN' 
-	operations to create unified dataset (dim_customers, dim_products, 
-	fact_sales) for reporting and analysis.
+    This script merges data from cleaned CRM and ERP tables using 'LEFT JOIN' 
+    operations to create unified dataset (dim_customers, dim_products, 
+    fact_sales) for reporting and analysis.
 ===============================================================================
 */
 
