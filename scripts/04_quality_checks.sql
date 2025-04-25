@@ -85,7 +85,7 @@ SELECT
     sls_order_dt 
 FROM clean_crm_sales_details
 WHERE sls_order_dt IS NULL
-	OR sls_order_dt > '2026-01-01' 
+    OR sls_order_dt > '2026-01-01' 
     OR sls_order_dt < '1900-01-01';
 
 -- Check for Invalid Date Orders (Order Date > Shipping/Due Dates)
@@ -186,4 +186,4 @@ FROM fact_sales f
 LEFT JOIN dim_customers c ON c.customer_id = f.customer_id
 LEFT JOIN dim_products p ON p.product_key = f.product_key
 WHERE p.product_key IS NULL 
-	OR c.customer_id IS NULL  
+    OR c.customer_id IS NULL
