@@ -3,7 +3,7 @@
 Data Analysis
 =============================================================================================================
 Purpose:
-	- 1. Change Over Time Analysis: Analyse sales performance across different years or months
+    - 1. Change Over Time Analysis: Analyse sales performance across different years or months
     - 2. Cumulative Analysis: Calculate total sales and running totals over time
     - 3. Performance Analysis (Year-over-Year): Compare product sales across different years to evaluate growth
     - 4. Part-to-Whole Analysis: Assess the contribution of each category to total sales
