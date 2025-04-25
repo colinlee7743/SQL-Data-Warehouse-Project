@@ -5,8 +5,8 @@ Data Transformation and Cleaning
 Script Purpose:
     This script creates cleaned versions of tables after applying necessary transformations and data 
     cleaning steps, including:
-	- Trims leading/trailing whitespaces from text fields to ensure data consistency.
-	- Normalizes values to a standardized format (e.g., converting 'gender' to 'Male`, 'Female', or 'N/A').
+    - Trims leading/trailing whitespaces from text fields to ensure data consistency.
+    - Normalizes values to a standardized format (e.g., converting 'gender' to 'Male`, 'Female', or 'N/A').
     - Replaces missing or NULL values with placeholders like 'N/A' or '0' as appropriate.
     - Ensures proper data type consistency (e.g.,'DATE' for dates).
     - Recalculate sales if original value is missing or incorrect.
