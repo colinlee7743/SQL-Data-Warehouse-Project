@@ -40,7 +40,7 @@ ALTER TABLE dim_customers ADD PRIMARY KEY (customer_id);
 DROP TABLE IF EXISTS dim_products;
 CREATE TABLE dim_products AS
 SELECT
-	pn.prd_id       AS product_id,
+    pn.prd_id       AS product_id,
     pn.prd_key      AS product_key,
     pn.prd_nm       AS product_name,
     pn.cat_id       AS category_id,
@@ -63,7 +63,7 @@ ALTER TABLE dim_products ADD PRIMARY KEY (product_key);
 DROP TABLE IF EXISTS fact_sales;
 CREATE TABLE fact_sales AS
 SELECT
-	sd.sls_ord_num  AS order_number,
+    sd.sls_ord_num  AS order_number,
     pr.product_key  AS product_key,
     cu.customer_id AS customer_id,
     sd.sls_order_dt AS order_date,
