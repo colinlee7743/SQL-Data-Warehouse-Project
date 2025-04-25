@@ -91,10 +91,8 @@ ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
-SHOW VARIABLES LIKE 'local_infile';
-SET GLOBAL local_infile = 1;
 -- 3.2 Load data into CRM products
-LOAD DATA LOCAL INFILE 'source_crm/prd_info.csv'
+LOAD DATA LOCAL INFILE 'C:/Download/source_crm/prd_info.csv'
 INTO TABLE crm_prd_info
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
@@ -132,3 +130,4 @@ FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
+
