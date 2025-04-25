@@ -33,7 +33,7 @@ WITH base_query AS
 1) Base Query: Retrieves core columns from fact_sales and dim_products
 ---------------------------------------------------------------------------*/
 SELECT 
-	f.order_number,
+    f.order_number,
     f.customer_id,
     f.order_date,
     f.sales_amount,
@@ -52,52 +52,52 @@ prod_agg AS (
 2) Product Aggregations: Summarizes key metrics at the product level
 ---------------------------------------------------------------------------*/
 SELECT 
-	product_key,
-	product_name,
+    product_key,
+    product_name,
     category,
     subcategory,
     cost,
     MAX(order_date) as last_order_date,
-	TIMESTAMPDIFF(month, MIN(order_date), MAX(order_date)) AS lifespan,
+    TIMESTAMPDIFF(month, MIN(order_date), MAX(order_date)) AS lifespan,
     COUNT(DISTINCT order_number) AS total_orders,
-	COUNT(DISTINCT customer_id) AS total_customers,
+    COUNT(DISTINCT customer_id) AS total_customers,
     SUM(sales_amount) AS total_sales,
     SUM(quantity) AS total_quantity,
     CASE
-		WHEN SUM(quantity) = 0 THEN 0.00
+	WHEN SUM(quantity) = 0 THEN 0.00
         ELSE ROUND(SUM(sales_amount) / SUM(quantity), 2) 
-	END AS avg_selling_price
+    END AS avg_selling_price
 FROM base_query
 GROUP BY product_key, product_name, category, subcategory, cost
 )
 SELECT
-	product_key,
-	product_name,
+    product_key,
+    product_name,
     category,
     subcategory,
     cost,
     last_order_date,
-	lifespan,
+    lifespan,
     TIMESTAMPDIFF(month, last_order_date, NOW()) AS recency,
     CASE
-		WHEN total_sales > 50000 THEN 'High-Performer'
-		WHEN total_sales >= 10000 THEN 'Mid-Range'
-		ELSE 'Low-Performer'
-	END AS product_grp,
+	WHEN total_sales > 50000 THEN 'High-Performer'
+	wHEN total_sales >= 10000 THEN 'Mid-Range'
+	ELSE 'Low-Performer'
+    END AS product_grp,
     total_orders,
-	total_customers,
+    total_customers,
     total_sales,
     total_quantity,
     avg_selling_price,
     -- Compuate average order revenue (AOR)
     CASE
-		WHEN total_orders = 0 THEN 0
+	WHEN total_orders = 0 THEN 0
         ELSE ROUND(total_sales / total_orders, 2)
-	END AS avg_order_revenue,
+    END AS avg_order_revenue,
     
     -- Compuate average monthly revenue
     CASE
-		WHEN lifespan = 0 THEN total_sales
+	WHEN lifespan = 0 THEN total_sales
         ELSE ROUND(total_sales / lifespan, 2)
-	END AS avg_mth_revenue
+    END AS avg_mth_revenue
 FROM prod_agg;
