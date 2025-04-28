@@ -46,6 +46,8 @@ SQL-Data-Warehouse-Project/
 ├── README.md                                 # Project overview and information
 ```
 
+<!--
 ## 📚 References
 - [SQL Data Warehouse Project by DataWithBaraa](https://github.com/DataWithBaraa/sql-data-warehouse-project)
 - [SQL Data Analytics Project by DataWithBaraa](https://github.com/DataWithBaraa/sql-data-analytics-project)
+-->
